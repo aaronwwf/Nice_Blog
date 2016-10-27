@@ -4,6 +4,7 @@ title: "Markdown Gramma"
 subtitle: "A brief introduction about Markdown Grammar. "
 date: 2016-03-29
 author: Benjamin
+lan: en 
 category: coding
 tags: code markdown github
 finished: true

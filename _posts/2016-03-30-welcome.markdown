@@ -4,6 +4,7 @@ title: "Welcome to Nice Blog"
 subtitle: "A simple Jekyll blog theme."
 date: 2016-03-30
 author: Benjamin
+lan: en 
 category: Jekyll
 tags: jekyll github blog
 finished: true

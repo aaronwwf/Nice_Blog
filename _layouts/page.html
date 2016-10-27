@@ -10,30 +10,26 @@ layout: null
   {% if site.google-analytics %}
   {% include google-analytics.html %}
   {% endif %}
-
   {% if page.url == "/404.html" %}
   <meta http-equiv="refresh" content="10; url={{ site.baseurl }}">
   {% endif %}
 
   </head>
-  
-  {% include header.html %}
-
-<header class="post-header">
-	<center><div class="contact-title">{{ page.title }}</div>
-		<div class="contact-subtitle"><p>{{ page.subtitle }}</p></div></center>
-</header>
-
-<div class="wrapper">
-	<div class="post-content">
+  <body>
+    <header class="post-header">
+	  <center><div class="contact-title">{{ page.title }}</div>
+		<div class="contact-subtitle"><p>{{ page.subtitle }}</p></div>
+      </center>
+    </header>
+    <div class="wrapper">
+	  <div class="post-content">
 		{{ content }}
-	</div>
-</div>
+	  </div>
+    </div>
+    <footer>
 
-<footer>
-
-{% include foot.html %}
-{% include footer.html %}
-
-</footer>
+    {% include footer.html %}
+    {% include foot.html %}
+    </footer>
+  </body>
 </html>

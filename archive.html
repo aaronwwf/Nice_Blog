@@ -25,7 +25,7 @@ permalink: /archive/
 	{% endif %}
 
 	<ul>
-		<li><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a><span class="date"> - {{ post.date | date_to_long_string }}</span>
+		<li class="{{post.lan}}"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a><span class="date"> - {{ post.date | date_to_long_string }}</span>
 		</li>
 	</ul>
 		  
