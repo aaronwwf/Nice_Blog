@@ -328,6 +328,13 @@ letter-spacing: 1px;
 }
 
 // for multiple language
+
+#language-changer{
+    position:fixed;
+    top:0px;
+    right:20%;
+}
+
 .en, .zh{
     display:none;
 }
