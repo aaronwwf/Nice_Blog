@@ -7,8 +7,8 @@ description: >
     Where I post my thoughts. # this means to ignore newlines until "baseurl:"
 description_zh: >
     记录我想法的地方。 
-#baseurl: "/blog" # the subpath of your site, e.g. /blog
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "/blog" # the subpath of your site, e.g. /blog
+#baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://aaronwwf.com" # the base hostname & protocol for your site
 twitter_username: aaronwuw # your Github username
 github_username: aaronwwf # your Github username
