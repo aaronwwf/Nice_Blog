@@ -1,9 +1,12 @@
 # Site settings
 title: Blog 
 name: Aaron Wu # your name
+name_zh: 吴文锋 # your name
 email: aaronwwf@qq.com # your email address
 description: >
     Where I post my thoughts. # this means to ignore newlines until "baseurl:"
+description_zh: >
+    记录我想法的地方。 
 #baseurl: "/blog" # the subpath of your site, e.g. /blog
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://aaronwwf.com" # the base hostname & protocol for your site

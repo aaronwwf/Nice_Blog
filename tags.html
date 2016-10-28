@@ -1,45 +1,54 @@
 ---
 layout: page
 title: Tags
+title_zh: 标签 
 subtitle: Keep Calm and Carry On.
+subtitle_zh: 路漫漫其修远兮，吾将上下而求索。 
 permalink: /tags/
 ---
 
 <section class="post-tags">
-    {% assign tags_list = site.tags %}
-    
-    {% if tags_list.first[0] == null %}
-    {% for tag in tags_list %}
-    <a class="post-tags-item" href="#{{ tag | slugify }}">{{ tag }}</a>
+    {% for tag in site.tags %}
+        {% assign temp = tag[0] | split: '_' %}
+        {% comment %}
+           temp = [name, lan, value]
+        {% endcomment %}
+        {% if temp.size == 1 %}
+            <a class="en post-tags-item" href="#{{ temp[0] | slugify }}">{{ temp[0] }}</a>
+        {% else %}
+            <a class="{{temp[1]}} post-tags-item" href="#{{ temp[0] | slugify }}">{{ temp[2] }}</a>
+        {% endif %}
     {% endfor %}
-    {% else %}
-    {% for tag in tags_list %}
-    <a class="post-tags-item" href="#{{ tag[0] | slugify }}">{{ tag[0] }}</a>
-    {% endfor %}
-    {% endif %}
-    
-    {% assign tags_list = nil %}
-
 </section>
 
 <hr>
 
     {% for tag in site.tags  %}
-    <h2 id="{{ tag[0] | slugify }}">{{ tag[0] | capitalize }}</h2>
-    
-    <ul>
+        {% assign temp = tag[0] | split: '_' %}
+        {% comment %}
+           temp = [name, lan, value]
+        {% endcomment %}
+        {% if temp.size == 1 %}
+    <h2 class="en" id="{{ temp[0] | slugify }}">{{ temp[0] | capitalize }}</h2>
+    <ul class="en">
+        {% else %}
+    <h2 class="{{temp[1]}}" id="{{ temp[0] | slugify }}">{{ temp[2] | capitalize }}</h2>
+    <ul class="{{temp[1]}}">
+        {% endif %}
+
         {% assign pages_list = tag[1] %}
         {% for post in pages_list reversed %}
-        {% if post.title != null %}
-        {% if group == null or group == post.group %}
+            {% if post.title != null %}
+                {% if group == null or group == post.group %}
         <li>
-		<p><a href="{{ site.url }}{{ post.url | prepend: site.baseurl }}">
+		<p><a href="{{ post.url | prepend: site.baseurl }}">
 			{{ post.title }}</a><span class="date"><time datetime="{{ post.date | date_to_long_string }}"> - {{ post.date | date_to_long_string }}</time></span></p>
         </li>
-        {% endif %}
-        {% endif %}
+                {% endif %}
+            {% endif %}
         {% endfor %}
         {% assign pages_list = nil %}
         {% assign group = nil %}
+        {% assign temp = nil %}
     </ul>
     {% endfor %}

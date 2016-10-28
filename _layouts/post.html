@@ -17,7 +17,16 @@ layout: default
         {% if page.tags %}
         <div class="post-tags">
         {% for tag in page.tags %}
-		<a class="post-tags-item" href="{{ site.url }}{{ site.baseurl }}/tags/">{{ tag }}</a>
+            {% assign temp = tag | split: '_' %}
+            {% comment %}
+                temp = [name, lan, value]
+            {% endcomment %}
+            {% if temp.size == 1 %}
+		    <a class="en post-tags-item" href="{{ site.baseurl }}/tags/">{{ tag }}</a>
+            {% else %}
+		    <a class="post-tags-item" href="{{ site.baseurl }}/tags/">{{ temp[2] }}</a>
+            {% endif %}
+
         {% endfor %}
 	{% endif %}</div>
     </center>
@@ -31,12 +40,12 @@ layout: default
 	<p>{{ page.subtitle }}</p>
 	{% endif %}
     </center>
-	<h2>Directory</h2>
+	<h2><span class="en">Directory</span><span class="zh">目录</span></h2>
 </div>
 
-<div id="category"></div>
+<div id="directory"></div>
 
-<div class="post-content" itemprop="articleBody">
+<div class="post-content" itemprop="articleBody" id="article-body">
     {{ content }}
 </div>
 

@@ -1,26 +1,54 @@
 hljs.initHighlightingOnLoad();
 
 $(document).ready(function(){
-    $("h2,h3,h4,h5,h6").each(function(i,item){
+    $("#article-body").find("h2,h3,h4,h5,h6").each(function(i,item){
 	    var tag = $(item).get(0).localName;
+	    var level = parseInt(tag.substr(1));
 	    $(item).attr("id","dir"+i);
-	    $("#category").append('<a class="new'+tag+'" href="#dir'+i+'">'+$(this).text()+'</a></br>');
-	    $(".newh2").css("margin-left",25);
-	    $(".newh3").css("margin-left",45);
-	    $(".newh4").css("margin-left",65);
-	    $(".newh5").css("margin-left",85);
-	    $(".newh6").css("margin-left",105);
+	    var $element = $('<a class="dir-'+tag+'" href="#dir'+i+'">'+$(this).text()+'</a></br>')
+	    $element.css("margin-left",level*20-15); 
+	    $element.appendTo($("#directory"));
     });
-    changeLanguage("en");
+    var currentLan=$.cookie("lan");
+    console.log(currentLan);
+    if(!currentLan){
+    	currentLan="en";
+    }
+    changeLanguage(currentLan);
 });
-window.currentLan="en";
+
 function changeLanguage(lan){
-    $("."+window.currentLan).hide();
+	var currentLan=$.cookie("lan");
+    $("."+currentLan).hide();
     $("."+lan).show();
-	window.currentLan=lan;
+	$.cookie("lan",lan,{path:'/'});
 } 
 $(".changeLan").click(function(){
     var lan = $(this).attr("lan");
     changeLanguage(lan);
+    return false;
+});
+$(".jumpLan").click(function(){
+    var lan = $(this).attr("lan");
+    var url = window.location.href;
+    //replace langage "*-<oldlan>.html" to "*-<newlan>.html"
+    //replace tag name
+    var tmp = url.split('/');
+    var title = tmp[tmp.length-1];
+    var category = tmp[tmp.length-2];
+   	category = category.split("_")[0];
+    if (lan !="en"){
+    	category = category+"_"+lan+"_"+CategoryMap[category][lan]
+    }
+    if(!category){
+    	return;
+    }
+    var tmp_t = title.split('-');
+    tmp_t[tmp_t.length-1]=lan+".html";
+    title = tmp_t.join('-');
+    tmp[tmp.length-1]=title;
+    tmp[tmp.length-2]=category;
+    url = tmp.join('/');
+    window.location.href=url;
     return false;
 });

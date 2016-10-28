@@ -5,8 +5,8 @@ subtitle: "我的第一篇博客"
 date: 2016-10-27
 author: 吴文锋 
 lan: zh 
-category: 博客 
-tags: 想法 
+category: blog_zh_博客 
+tags: thought_zh_想法 
 finished: true
 ---
 

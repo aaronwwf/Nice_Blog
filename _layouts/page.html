@@ -16,9 +16,10 @@ layout: null
 
   </head>
   <body>
+    {% include header.html %}
     <header class="post-header">
-	  <center><div class="contact-title">{{ page.title }}</div>
-		<div class="contact-subtitle"><p>{{ page.subtitle }}</p></div>
+	  <center><div class="contact-title"><span class="en">{{ page.title }}</span><span class="zh">{{ page.title_zh}}</span></div>
+		<div class="contact-subtitle"><p><span class="en">{{ page.subtitle }}</span><span class="zh">{{ page.subtitle_zh}}</span></p></div>
       </center>
     </header>
     <div class="wrapper">

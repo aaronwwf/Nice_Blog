@@ -1,6 +1,12 @@
 <div id="language-changer">
         <p>
-              >>> <a href="#" lan="zh" class="changeLan en">中文</a>
+        {% if page.lan == "en" %}
+              >>> <a href="#" lan="zh" class="jumpLan" >中文</a> <<<
+        {% elsif page.lan == "zh" %}
+              >>> <a href="#" lan="en" class="jumpLan" >English</a> <<<
+        {% else %}
+               >>> <a href="#" lan="zh" class="changeLan en">中文</a>
               <a href="#" lan="en" class="changeLan zh">Engilsh</a> <<<
+        {% endif %}
         </p> 
 </div>

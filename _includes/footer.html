@@ -1,17 +1,19 @@
 <div class="site-footer">
   <div class="wrapper">
     <center>
-		<p><a class="link" href="{{ site.baseurl }}/archive/">Archive</a> /
-		<a class="link" href="{{ site.baseurl }}/category/">Category</a> / 
-		<a class="link" href="{{ site.baseurl }}/tags/">Tags</a> / 
-		<a class="link" href="{{ site.url }}">About</a> /
+		<p><a class="link" href="{{ site.baseurl }}/archive/"><span class="en">Archive</span><span class="zh">归档</span></a> /
+		<a class="link" href="{{ site.baseurl }}/category/"><span class="en">Category</span><span class="zh">分类</span></a> / 
+		<a class="link" href="{{ site.baseurl }}/tags/"><span class="en">Tags</span><span class="zh">标签</span></a> / 
+		<a class="link" href="{{ site.url }}"><span class="en">About</span><span class="zh">关于我</span></a>
         </p>
         <span><script>document.write(new Date().getFullYear());</script></span>
         <span>&copy;</span>
-        
-		<a class="link" href="{{ site.baseurl }}">{{ site.name }}</a>
+		<a class="link en" href="{{ site.url }}">{{ site.name }}</a>
+		<a class="link zh" href="{{ site.url }}">{{ site.name_zh }}</a>
 		<br>
-		<span>Thanks to <a class="link" href="https://twitter.com/itisbenjamin1" target="_blank"> Ben</a> for the Theme.</span>
+		<span class="en">Thanks to <a class="link" href="https://github.com/itisbenjamin/Nice_Blog" target="_blank"> Ben</a> for the Theme.</span>
+		<span class="zh">感谢<a class="link" href="https://github.com/itisbenjamin/Nice_Blog" target="_blank"> Ben</a>的页面设计.</span>
     </center>
   </div>
 </div>
+
